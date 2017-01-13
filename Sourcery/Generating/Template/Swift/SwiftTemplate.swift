@@ -79,7 +79,7 @@ class SwiftTemplate: Template {
         let mainFile = compilationDir + Path("main.swift")
         let binaryFile = compilationDir + Path("bin")
 
-        let runableCode = "extension GenerationContext { override func generate() { " + swiftCode + " } }; run();"
+        let runableCode = "import Foundation; extension GenerationContext { override func generate() { " + swiftCode + " } }; run();"
 
         try mainFile.write(runableCode)
 
